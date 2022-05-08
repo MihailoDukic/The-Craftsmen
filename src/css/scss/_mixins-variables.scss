@@ -1,0 +1,31 @@
+$font: 'General Sans', sans-serif;
+$font-two: 'Chillax', sans-serif;
+$background-clr: #000; 
+$link-one: #2900E8;
+$link-two: #fff;
+$link-three: #1B1B1F;
+$link-four: #FFF480;
+$proj-one: #fff;
+$proj-two: #021F23;
+$proj-three: #D0FF94;
+$services-clr: #A5A1FF;
+$about-clr: #FFAED8;
+$txt-dark-clr: #1B1B1F; 
+$txt-light-clr: #fff; 
+$footer-txt-clr: #FFF480;
+$padding-sides: 0 .5rem;
+
+@mixin flexbox($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+
+
+@mixin links() {
+    text-decoration: none;
+    line-height: 22px;
+    font-size: 22px;
+}
+

@@ -1,0 +1,136 @@
+body {
+  background-color: $background-clr;
+  font-family: $font;
+  width: 100%;
+  height: auto;
+  padding: $padding-sides;
+  transition: all 0.3s ease-in-out;
+}
+
+.scroll-container {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+/* Header Styles */
+
+.header {
+  width: 100%;
+  height: 380px;
+  @include flexbox(center, center);
+  &__logo {
+    width: 300px;
+    height: auto;
+  }
+}
+
+/* Nav Styles */
+
+.nav {
+  width: 100%;
+  height: 550px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    'service service work about'
+    'service service contact contact';
+  gap: 10px;
+
+  &__link {
+    background: #fff;
+    border-radius: 80px;
+    padding: 3rem 4rem;
+    @include flexbox(space-between, start);
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    &__info,
+    &__description {
+      @include flexbox(space-between, space-between);
+      width: 100%;
+      span {
+        font-size: 1.5rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+
+      svg {
+        width: 15px;
+        height: auto;
+      }
+    }
+
+    &__description {
+      svg {
+        width: 60px;
+        height: auto;
+      }
+    }
+
+    /* Text Scroll */
+
+    .text-scroll {
+      white-space: nowrap;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4rem;
+      animation: text-scroll 12s infinite linear;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      @keyframes text-scroll {
+        0% {
+          margin-left: 0;
+        }
+        100% {
+          margin-left: -500px;
+        }
+      }
+    }
+    /* Hover Anime */
+    &:hover .text-scroll {
+      opacity: 0.5;
+      transition: all 0.3s ease-in-out;
+    }
+
+    &:hover {
+      transform: scale(0.95);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  /* Grid Area Setup */
+
+  .service {
+    grid-area: service;
+    background-color: $link-one;
+    color: $txt-light-clr;
+  }
+
+  .work {
+    grid-area: work;
+    background-color: $link-two;
+  }
+
+  .about {
+    grid-area: about;
+    background-color: $link-three;
+    color: $txt-light-clr;
+  }
+
+  .contact {
+    grid-area: contact;
+    background-color: $link-four;
+  }
+
+  .work,
+  .contact,
+  .about {
+    justify-content: end;
+  }
+}

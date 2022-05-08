@@ -1,0 +1,19 @@
+{
+  "name": "the-craftsmen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "keywords": [],
+  "author": "MD",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^3.10.4",
+    "l": "^0.6.0",
+    "locomotive-scroll": "^4.1.4",
+    "parcel-bundler": "^1.12.5"
+  }
+}

@@ -1,0 +1,206 @@
+/***
+    The new CSS reset - version 1.6.0 (last updated 29.4.2022)
+    GitHub page: https://github.com/elad2412/the-new-css-reset
+***/
+/*
+    Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+    - The "symbol *" part is to solve Firefox SVG sprite bug
+ */
+*:where(:not(html, iframe, canvas, img, svg, video):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a,
+button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-width: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* fix the feature of 'hidden' attribute.
+   display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+   - fix for the content editable attribute will work properly. */
+:where([contenteditable]) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable="true"]) {
+  -webkit-user-drag: element;
+}
+
+body {
+  background-color: #000;
+  font-family: "General Sans", sans-serif;
+  width: 100%;
+  height: auto;
+  padding: 0 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.scroll-container {
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+}
+
+/* Header Styles */
+.header {
+  width: 100%;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.header__logo {
+  width: 300px;
+  height: auto;
+}
+
+/* Nav Styles */
+.nav {
+  width: 100%;
+  height: 550px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "service service work about" "service service contact contact";
+  gap: 10px;
+  /* Grid Area Setup */
+}
+.nav__link {
+  background: #fff;
+  border-radius: 80px;
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  /* Text Scroll */
+  /* Hover Anime */
+}
+.nav__link__info, .nav__link__description {
+  display: flex;
+  justify-content: space-between;
+  align-items: space-between;
+  width: 100%;
+}
+.nav__link__info span, .nav__link__description span {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+.nav__link__info svg, .nav__link__description svg {
+  width: 15px;
+  height: auto;
+}
+.nav__link__description svg {
+  width: 60px;
+  height: auto;
+}
+.nav__link .text-scroll {
+  white-space: nowrap;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  animation: text-scroll 12s infinite linear;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+}
+@keyframes text-scroll {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -500px;
+  }
+}
+.nav__link:hover .text-scroll {
+  opacity: 0.5;
+  transition: all 0.3s ease-in-out;
+}
+.nav__link:hover {
+  transform: scale(0.95);
+  transition: all 0.3s ease-in-out;
+}
+.nav .service {
+  grid-area: service;
+  background-color: #2900E8;
+  color: #fff;
+}
+.nav .work {
+  grid-area: work;
+  background-color: #fff;
+}
+.nav .about {
+  grid-area: about;
+  background-color: #1B1B1F;
+  color: #fff;
+}
+.nav .contact {
+  grid-area: contact;
+  background-color: #FFF480;
+}
+.nav .work,
+.nav .contact,
+.nav .about {
+  justify-content: end;
+}
+
+/*# sourceMappingURL=/styles.5c32a3d8.css.map */
