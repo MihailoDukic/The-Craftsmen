@@ -43,7 +43,7 @@ const header = gsap.timeline({
     scrollTrigger: {
         trigger: '.header',
         scroller: '.scroll-container',
-        markers: true,
+
         start: 'top top',
         end: '+=380px',
         scrub: 1
@@ -59,7 +59,7 @@ const text = gsap.timeline({
     scrollTrigger: {
         trigger: '.what-we-do',
         scroller: '.scroll-container',
-        markers: true,
+
         start: '-50% top',
         end: '+=2500px',
         scrub: 1,
@@ -77,7 +77,6 @@ services.forEach(service => {
         scrollTrigger: {
             trigger: service,
             scroller: '.scroll-container',
-            markers: true,
             start: '-1100px top',
             end: 'auto',
             scrub: 0.9,
@@ -87,17 +86,16 @@ services.forEach(service => {
 
     serv.addLabel('start')
         .to(service.children[1], 0.5, { right: 0, x: 0, opacity: 1 })
-        .to(service.children[0],0.5,  { left: 0, x: '50%',  opacity: 1})
+        .to(service.children[0], 0.5, { left: 0, x: '50%', opacity: 1 })
         .addLabel('end')
 })
 
-const circles = gsap.utils.toArray('.circle'); 
+const circles = gsap.utils.toArray('.circle');
 circles.forEach(shape => {
-    const circle  = gsap.timeline({
+    const circle = gsap.timeline({
         scrollTrigger: {
             trigger: '.animate-team',
             scroller: '.scroll-container',
-            markers: true,
             start: '-1000px top',
             end: 'auto',
             scrub: 0.9,

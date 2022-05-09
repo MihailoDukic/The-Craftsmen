@@ -12133,7 +12133,6 @@ var header = _gsap.default.timeline({
   scrollTrigger: {
     trigger: '.header',
     scroller: '.scroll-container',
-    markers: true,
     start: 'top top',
     end: '+=380px',
     scrub: 1
@@ -12149,7 +12148,6 @@ var text = _gsap.default.timeline({
   scrollTrigger: {
     trigger: '.what-we-do',
     scroller: '.scroll-container',
-    markers: true,
     start: '-50% top',
     end: '+=2500px',
     scrub: 1,
@@ -12168,7 +12166,6 @@ services.forEach(function (service) {
     scrollTrigger: {
       trigger: service,
       scroller: '.scroll-container',
-      markers: true,
       start: '-1100px top',
       end: 'auto',
       scrub: 0.9,
@@ -12194,7 +12191,6 @@ circles.forEach(function (shape) {
     scrollTrigger: {
       trigger: '.animate-team',
       scroller: '.scroll-container',
-      markers: true,
       start: '-1000px top',
       end: 'auto',
       scrub: 0.9,

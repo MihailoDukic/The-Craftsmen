@@ -451,23 +451,29 @@ body {
 /* Form Layout */
 .contact-form {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  min-width: 100%;
+  margin: 0 auto;
   margin-top: 0.5rem;
-  grid-template-areas: "name email subject submit" "message message message submit";
+  grid-template-areas: "name email subject submit submit" "message message message submit submit";
   gap: 10px;
   color: #fff480;
-  width: 100%;
   height: 50vh;
   padding: 0 0.5rem;
   margin-top: 1rem;
+  min-width: 100%;
+  height: auto;
   /* Grid area layout */
 }
 .contact-form .field {
   background-color: #1D1C16;
   border-radius: 80px;
-  padding: 0 4rem;
+  padding: 0 5rem;
   transition: all 0.3s ease-in-out;
   font-size: 1rem;
+  width: 100%;
+  height: 15vh;
+  margin: 0 auto;
 }
 .contact-form .field:focus-within {
   border: 1px solid #fff480;
@@ -484,10 +490,13 @@ body {
 }
 .contact-form .message-field {
   grid-area: message;
-  padding: 4rem 4rem;
+  padding: 4rem 5rem;
+  height: 40vh;
 }
 .contact-form .submit-btn {
   grid-area: submit;
+  height: 55vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -501,6 +510,195 @@ body {
 .contact-form .submit-btn:hover {
   transform: scale(0.95);
   transition: all 0.3s ease-in-out;
+}
+
+.footer {
+  margin: 5rem 0;
+  padding: 0 6rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+}
+.footer__logo {
+  width: 180px;
+  height: auto;
+}
+.footer__copyright, .footer__designer {
+  font-size: 1.5rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .contact-form {
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "name email subject" "message message message" "submit submit submit";
+  }
+  .contact-form .field {
+    height: 15vh;
+  }
+  .contact-form .message-field {
+    height: 40vh;
+  }
+  .contact-form .submit-btn {
+    height: 15vh;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .header {
+    height: 250px;
+  }
+
+  .nav {
+    grid-template-columns: 1fr 1fr;
+    height: auto;
+    grid-template-areas: "service service" "work about" "contact contact";
+  }
+  .nav .service {
+    height: 50vh;
+  }
+  .nav .work,
+.nav .about {
+    height: 25vh;
+  }
+  .nav .contact {
+    height: 30vh;
+  }
+
+  .what-we-do__heading {
+    padding: 0 3rem;
+  }
+
+  .team__description {
+    padding: 0 3rem;
+  }
+
+  .get-in-touch {
+    padding: 0 3rem;
+  }
+  .get-in-touch__description__contact-details .contact a {
+    font-size: 1rem;
+    margin: 0;
+    margin-right: 0.5rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .what-we-do .curved-text {
+    display: none;
+  }
+  .what-we-do__services .wwd-service__heading {
+    display: none;
+  }
+  .what-we-do__services .wwd-service__description {
+    width: 100%;
+    opacity: 1;
+  }
+
+  .get-in-touch {
+    padding: 0 3rem;
+  }
+  .get-in-touch__description__contact-details .contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .get-in-touch__description__contact-details .contact a {
+    margin: 0;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-right: 0.5rem;
+    margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .projects {
+    grid-template-columns: 1fr;
+    grid-template-areas: "kaploom" "dream-well" "creanntiv";
+  }
+  .projects .project {
+    height: 50vh;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .contact-form {
+    grid-template-columns: 1fr;
+    grid-template-areas: "name" "email" "subject" "message" "submit";
+  }
+  .contact-form .field {
+    height: 10vh;
+    margin-bottom: 1.5rem;
+    padding: 0 3rem;
+    border-radius: 50px;
+  }
+  .contact-form .message-field {
+    height: 40vh;
+    padding: 4rem 3rem;
+  }
+  .contact-form .submit-btn {
+    height: 10vh;
+    border-radius: 50px;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    align-items: space-between;
+    height: 200px;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .nav__link__info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .nav__link__info span {
+    font-size: 1.3rem;
+  }
+  .nav__link__info svg {
+    display: none;
+  }
+
+  .what-we-do {
+    height: auto;
+  }
+  .what-we-do__heading__description p {
+    font-weight: bold;
+  }
+  .what-we-do__services {
+    padding: 0;
+  }
+  .what-we-do__services .wwd-service {
+    width: 100%;
+    height: 30vh;
+  }
+  .what-we-do__services .wwd-service__description p {
+    font-size: 1.1rem;
+  }
+
+  .projects {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+  .projects .project__name {
+    font-size: 2rem;
+  }
+  .projects .project .p2, .projects .project .p3 {
+    font-size: 0.5rem;
+  }
+
+  .team__description {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    font-weight: normal;
+  }
 }
 
 /*# sourceMappingURL=/styles.5c32a3d8.css.map */

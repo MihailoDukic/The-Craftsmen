@@ -409,24 +409,30 @@ body {
 
 .contact-form {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  min-width: 100%;
+  margin: 0 auto;
   margin-top: 0.5rem;
   grid-template-areas:
-    'name email subject submit'
-    'message message message submit';
+    'name email subject submit submit'
+    'message message message submit submit';
   gap: 10px;
   color: $footer-txt-clr;
-  width: 100%;
   height: 50vh;
   padding: $padding-sides-links;
   margin-top: 1rem;
+  min-width: 100%;
+  height: auto;
 
   .field {
     background-color: $footer-bg;
     border-radius: 80px;
-    padding: 0 4rem;
+    padding: 0 5rem;
     transition: all 0.3s ease-in-out;
     font-size: 1rem;
+    width: 100%;
+    height: 15vh;
+    margin: 0 auto;
     &:focus-within {
       border: 1px solid $footer-txt-clr;
       transition: all 0.3s ease-in-out;
@@ -449,12 +455,14 @@ body {
 
   .message-field {
     grid-area: message;
-    padding: 4rem 4rem;
+    padding: 4rem 5rem;
+    height: 40vh;
   }
 
   .submit-btn {
     grid-area: submit;
-
+    height: 55vh;
+    width: 100%;
     @include flexbox(center, center);
     cursor: pointer;
     background-color: $footer-txt-clr;
@@ -466,5 +474,21 @@ body {
       transform: scale(0.95);
       transition: all 0.3s ease-in-out;
     }
+  }
+}
+
+.footer {
+  margin: $vertical-spacing;
+  padding: 0 6rem;
+  @include flexbox(space-between, center);
+  color: $txt-light-clr;
+  &__logo {
+    width: 180px;
+    height: auto;
+  }
+
+  &__copyright,
+  &__designer {
+    font-size: 1.5rem;
   }
 }
