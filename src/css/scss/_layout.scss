@@ -339,17 +339,132 @@ body {
 
   .animate-team {
     color: $about-clr;
+    padding-bottom: 2rem;
 
     .member {
-      font-size: 4rem;
+      font-size: 6vw;
       white-space: nowrap;
-      padding: 3rem 0;
-      text-transform: uppercase;
-      margin-left: -50rem;
+      margin: 2rem 0;
+      margin-left: -25rem;
+      font-weight: bold;
+      position: relative;
     }
 
     .member:nth-child(even) {
-      color: $services-clr;
+      -webkit-text-stroke-color: $about-clr;
+      -webkit-text-stroke-width: 1px;
+      color: transparent;
+    }
+  }
+}
+
+/* Get In Touch */
+
+.get-in-touch {
+  color: $footer-txt-clr;
+
+  padding: $padding-sides;
+  border-radius: 80px;
+  margin-top: -4rem;
+  background-color: $footer-bg;
+  @include flexbox(space-between, end);
+  &__description {
+    padding: 3rem 0;
+    h1 {
+      font-size: 17.28px;
+    }
+
+    p {
+      font-size: 6vw;
+      line-height: 7vw;
+      margin: 2.5rem 0;
+    }
+
+    &__contact-details {
+      padding-top: 4rem;
+      .contact {
+        a {
+          border: 2px solid $footer-txt-clr;
+          padding: 1rem;
+          font-size: 1.2rem;
+          border-radius: 50px;
+          display: inline-block;
+          margin: 0 0.5rem;
+          font-weight: bold;
+          &:hover {
+            color: $txt-dark-clr;
+            background: $footer-txt-clr;
+          }
+        }
+      }
+    }
+  }
+  .curved-text {
+    width: 200px;
+    height: auto;
+  }
+}
+
+/* Form Layout */
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 0.5rem;
+  grid-template-areas:
+    'name email subject submit'
+    'message message message submit';
+  gap: 10px;
+  color: $footer-txt-clr;
+  width: 100%;
+  height: 50vh;
+  padding: $padding-sides-links;
+  margin-top: 1rem;
+
+  .field {
+    background-color: $footer-bg;
+    border-radius: 80px;
+    padding: 0 4rem;
+    transition: all 0.3s ease-in-out;
+    font-size: 1rem;
+    &:focus-within {
+      border: 1px solid $footer-txt-clr;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  /* Grid area layout */
+
+  .name-field {
+    grid-area: name;
+  }
+
+  .email-field {
+    grid-area: email;
+  }
+
+  .subject-field {
+    grid-area: subject;
+  }
+
+  .message-field {
+    grid-area: message;
+    padding: 4rem 4rem;
+  }
+
+  .submit-btn {
+    grid-area: submit;
+
+    @include flexbox(center, center);
+    cursor: pointer;
+    background-color: $footer-txt-clr;
+    color: $txt-dark-clr;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      transform: scale(0.95);
+      transition: all 0.3s ease-in-out;
     }
   }
 }
