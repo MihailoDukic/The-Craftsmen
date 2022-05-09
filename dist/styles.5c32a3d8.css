@@ -84,14 +84,13 @@ body {
   font-family: "General Sans", sans-serif;
   width: 100%;
   height: auto;
-  padding: 0 0.5rem;
   transition: all 0.3s ease-in-out;
 }
 
 .scroll-container {
   overflow: hidden;
   width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 /* Header Styles */
@@ -110,11 +109,12 @@ body {
 /* Nav Styles */
 .nav {
   width: 100%;
-  height: 550px;
+  height: 60vh;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-areas: "service service work about" "service service contact contact";
   gap: 10px;
+  padding: 0 0.5rem;
   /* Grid Area Setup */
 }
 .nav__link {
@@ -181,8 +181,11 @@ body {
 }
 .nav .service {
   grid-area: service;
-  background-color: #2900E8;
+  background-color: #2900e8;
   color: #fff;
+}
+.nav .service .text-scroll {
+  font-size: 6rem;
 }
 .nav .work {
   grid-area: work;
@@ -190,17 +193,212 @@ body {
 }
 .nav .about {
   grid-area: about;
-  background-color: #1B1B1F;
+  background-color: #1b1b1f;
   color: #fff;
 }
 .nav .contact {
   grid-area: contact;
-  background-color: #FFF480;
+  background-color: #fff480;
 }
 .nav .work,
 .nav .contact,
 .nav .about {
   justify-content: end;
+}
+
+/* What We Do */
+.what-we-do {
+  margin: 5rem 0;
+  /* Services List */
+}
+.what-we-do__heading {
+  color: #a5a1ff;
+  padding: 0 7rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.what-we-do__heading__description h1 {
+  font-size: 17.28px;
+}
+.what-we-do__heading__description p {
+  font-size: 6vw;
+  line-height: 7vw;
+  margin: 2.5rem 0;
+}
+.what-we-do__heading .curved-text {
+  width: 200px;
+  height: auto;
+}
+.what-we-do__services {
+  margin: 5rem 0;
+  padding: 0 0.5rem;
+}
+.what-we-do__services .wwd-service {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 1rem;
+  gap: 10px;
+  width: 100%;
+  height: 30vh;
+  position: relative;
+  opacity: 0.9;
+}
+.what-we-do__services .wwd-service__description {
+  background-color: #1b1b1f;
+  width: 50%;
+  border-radius: 80px;
+  height: 100%;
+  color: #a5a1ff;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  padding: 4rem 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+  opacity: 0;
+}
+.what-we-do__services .wwd-service__description h2 {
+  font-size: 21px;
+  font-weight: bold;
+  font-family: "Chillax", sans-serif;
+}
+.what-we-do__services .wwd-service__description p {
+  font-size: 21px;
+  line-height: normal;
+  font-weight: lighter;
+}
+.what-we-do__services .wwd-service__heading {
+  background-color: #a5a1ff;
+  width: 50%;
+  border-radius: 80px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  right: 0;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+  opacity: 0;
+  color: #1b1b1f;
+}
+.what-we-do__services .wwd-service__heading h2 {
+  font-size: 20px;
+  font-weight: 500;
+}
+.what-we-do__services .wwd-service__heading h1 {
+  font-size: 3rem;
+  font-family: "Chillax", sans-serif;
+  font-weight: bold;
+}
+
+/* Projects */
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "kaploom kaploom" "dream-well creanntiv";
+  width: 100%;
+  padding: 0 0.5rem;
+  gap: 10px;
+  /* Grid Area Setup */
+}
+.projects .project {
+  border-radius: 80px;
+  padding: 3rem 4rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+.projects .project:hover {
+  transform: scale(0.95);
+  transition: all 0.3s ease-in-out;
+}
+.projects .project__description-top, .projects .project__description-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 1.5rem;
+}
+.projects .project__description-bottom svg {
+  width: 15px;
+  height: auto;
+  transform: rotate(-135deg);
+}
+.projects .project__name {
+  font-size: 4rem;
+  font-weight: bold;
+  text-align: center;
+}
+.projects .p1 {
+  grid-area: kaploom;
+  background-color: #fff;
+  color: #1b1b1f;
+  height: 60vh;
+}
+.projects .p2 {
+  grid-area: dream-well;
+  background-color: #021f23;
+  color: #78f3e2;
+  height: 35vh;
+}
+.projects .p2 .project__name {
+  font-size: 2rem;
+}
+.projects .p3 {
+  grid-area: creanntiv;
+  background-color: #d0ff94;
+  height: 35vh;
+}
+.projects .p3 .project__name {
+  font-size: 2rem;
+}
+
+/* Team */
+.team {
+  margin: 5rem 0;
+  background-color: #1b1b1f;
+  border-radius: 80px;
+  height: auto;
+  position: relative;
+}
+.team__scroll-heading {
+  color: #ffaed8;
+  font-size: 10vw;
+  white-space: nowrap;
+  margin-left: -50rem;
+}
+.team__description {
+  color: #ffaed8;
+  padding: 0 7rem;
+  margin: 5rem 0;
+  font-size: 30px;
+  line-height: 58.54px;
+  max-width: 1000px;
+  position: relative;
+}
+.team .animate-team {
+  color: #ffaed8;
+}
+.team .animate-team .member {
+  font-size: 4rem;
+  white-space: nowrap;
+  padding: 3rem 0;
+  text-transform: uppercase;
+  margin-left: -50rem;
+}
+.team .animate-team .member:nth-child(even) {
+  color: #a5a1ff;
 }
 
 /*# sourceMappingURL=/styles.5c32a3d8.css.map */

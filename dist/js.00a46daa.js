@@ -12093,7 +12093,7 @@ _gsap.default.registerPlugin(_ScrollTrigger.default);
 
 var locoScroll = new _locomotiveScroll.default({
   el: document.querySelector(".scroll-container"),
-  inertia: 0.8,
+  inertia: 0.9,
   smooth: true,
   getDirection: true,
   mobile: {
@@ -12127,8 +12127,85 @@ _ScrollTrigger.default.scrollerProxy(".scroll-container", {
   // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
   pinType: document.querySelector(".scroll-container").style.transform ? "transform" : "fixed"
 }); // Code here... 
-// each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
 
+
+var header = _gsap.default.timeline({
+  scrollTrigger: {
+    trigger: '.header',
+    scroller: '.scroll-container',
+    markers: true,
+    start: 'top top',
+    end: '+=380px',
+    scrub: 1
+  }
+});
+
+header.addLabel('start').to('.header', {
+  scale: 0.8,
+  opacity: 0.5
+}).addLabel('end');
+
+var text = _gsap.default.timeline({
+  scrollTrigger: {
+    trigger: '.what-we-do',
+    scroller: '.scroll-container',
+    markers: true,
+    start: '-50% top',
+    end: '+=2500px',
+    scrub: 1,
+    ease: 'elastic.InOut'
+  }
+});
+
+text.addLabel('start').to('.curved-text', {
+  rotate: '180'
+}).addLabel('end');
+
+var services = _gsap.default.utils.toArray('.wwd-service');
+
+services.forEach(function (service) {
+  var serv = _gsap.default.timeline({
+    scrollTrigger: {
+      trigger: service,
+      scroller: '.scroll-container',
+      markers: true,
+      start: '-1100px top',
+      end: 'auto',
+      scrub: 0.9,
+      ease: 'elastic.ease'
+    }
+  });
+
+  serv.addLabel('start').to(service.children[1], 0.5, {
+    right: 0,
+    x: 0,
+    opacity: 1
+  }).to(service.children[0], 0.5, {
+    left: 0,
+    x: '50%',
+    opacity: 1
+  }).addLabel('end');
+});
+
+var circles = _gsap.default.utils.toArray('.circle');
+
+circles.forEach(function (shape) {
+  var circle = _gsap.default.timeline({
+    scrollTrigger: {
+      trigger: '.animate-team',
+      scroller: '.scroll-container',
+      markers: true,
+      start: '-1000px top',
+      end: 'auto',
+      scrub: 0.9,
+      ease: 'elastic.ease'
+    }
+  });
+
+  circle.addLabel('start').to(shape, {
+    opacity: 1
+  }).addLabel('end');
+}); // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
 
 _ScrollTrigger.default.addEventListener("refresh", function () {
   return locoScroll.update();
@@ -12171,7 +12248,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65427" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61550" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
