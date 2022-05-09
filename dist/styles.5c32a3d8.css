@@ -679,6 +679,11 @@ body {
     width: 100%;
     height: 30vh;
   }
+  .what-we-do__services .wwd-service__description {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+  }
   .what-we-do__services .wwd-service__description p {
     font-size: 1.1rem;
   }
